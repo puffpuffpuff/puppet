@@ -1,10 +1,9 @@
 const puppeteer = require('puppeteer');
+const CONFIG = require('./config.json');
 
-(async () => {    
-    async function _tabs(_url){
-        const browser = await puppeteer.launch({
-            defaultViewport: {width: 1200, height: 1000},
-        });
+const puppet = (async () => {    
+    async function newWindow(_url){
+        const browser = await puppeteer.launch();
         const page = await browser.newPage();
 
         await page.setDefaultNavigationTimeout(0); 
@@ -14,9 +13,18 @@ const puppeteer = require('puppeteer');
     }
 
     const instance = [
-        await _tabs(''),
-        
+        await newWindow(CONFIG.targetUrl[0]),
+        await newWindow(CONFIG.targetUrl[1]),
+        await newWindow(CONFIG.targetUrl[2]),
+        await newWindow(CONFIG.targetUrl[3]),
+        await newWindow(CONFIG.targetUrl[4]),
+        await newWindow(CONFIG.targetUrl[5]),
+        await newWindow(CONFIG.targetUrl[6]),
+        await newWindow(CONFIG.targetUrl[7]),
+        await newWindow(CONFIG.targetUrl[8]),
+        await newWindow(CONFIG.targetUrl[9]),
     ];
+
     let sequence = 0;
     
     while (true) {
@@ -50,3 +58,4 @@ const puppeteer = require('puppeteer');
     }
 })();
 
+module.exports= {puppet}
