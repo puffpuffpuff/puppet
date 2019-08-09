@@ -1,0 +1,15 @@
+{
+    "cron": "1 9-16 * * *",
+    "targetUrl": [
+        "https://url",
+        "https://url",
+        "https://url",
+        "https://url",
+        "https://url",
+        "https://url",
+        "https://url",
+        "https://url",
+        "https://url",
+        "https://url"
+    ]
+}
